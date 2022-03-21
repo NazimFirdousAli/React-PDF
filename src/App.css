@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+.header {background-color:#e8e8e8;}
+
+.navbar-expand {padding:0;}
+
+.header img {width:80px; margin-left:50px;}
+@media (max-width: 767px) {
+.header img {margin-left:0;}
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form {padding-top:50px; width:100%;}
+
+.form h1 {text-align:center;}
+
+.formInput {display:flex; justify-content:center; padding-top:20px;}
+
+.paper {width:80%; padding:50px 19%; text-align:center;/* margin: 0px auto; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.css-3su884-MuiPaper-root {background-color:#efefef!important;}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {border-color:#000!important;}
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {margin-top:25px!important; width:80%!important;}
+.div-button {margin-top:25px!important; display:flex; justify-content:space-around;}
+.div-radio {margin-top:25px!important; display:flex; justify-content:space-around; align-items:center;}
+
+.formInput table {font-family:arial,sans-serif; border-collapse:collapse; width:80%; margin:0 auto; margin-top:20px;}
+.formInput  th {border:1px solid #ddd;/* text-align: left; */
+padding:8px;}
+.formInput td:nth-last-child(odd) {display:flex; flex-direction:column; align-items:center;}
+.formInput tr:nth-child(even) {background-color:#ddd;}
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button {-webkit-appearance:none; margin:0;}
+input[type="number"] {-moz-appearance:textfield;}
+.totalTextField .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {text-align:center; cursor:not-allowed!important; font-size:20px; padding:10px; color:#00f!important;}
+.totalTextField .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {-webkit-text-fill-color:unset!important;}
+
+
+@media (max-width: 991px) {
+.paper {padding:50px 5%!important;}
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media (max-width: 767px) {
+.header img {margin-left:0;}
+.paper {padding:50px 0; width:90%;}
+.formInput table {width:90%; font-size:12px;}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {width:90%!important;}
+.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {padding:5px 14px!important;}
+.css-ahj2mt-MuiTypography-root {font-size:12px!important;}
+.css-u4tvz2-MuiFormLabel-root {font-size:12px!important;}
+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {font-size:12px!important;}
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {font-size:12px!important;}
+
+
+
 }
 
-.App-link {
-  color: #61dafb;
+
+
+
+
+
+.imgLogo {display:flex; justify-content:center;}
+
+.imgLogo img{
+    height: 100px; border-width: 0px;
+}
+.deposite-div{
+    width: 32%; float: left; font-size: medium;
+}
+.lblChallan_No{
+    display: inline-block;
+    border-style: none;
+}
+.main-body-div{
+    margin-left: 2%; margin-right:2%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+@media (max-width:767px) {
+.imgLogo img {height:50px;}
+ .divFeePayment h5{
+    font-size: 6px ;
+}
+.deposite-div{
+    width: 32%; float: left; font-size: 8px;
+}
+.lblChallan_No{
+    font-size: 6px;
+}
+/* .main-body-div{
+    font-size: 6px;
+} */
+
 }
