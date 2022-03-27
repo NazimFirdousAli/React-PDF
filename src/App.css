@@ -1,54 +1,161 @@
-.header {background-color:#e8e8e8;}
+.header {
+    background-color: #e8e8e8;
+}
 
-.navbar-expand {padding:0;}
+.navbar-expand {
+    padding: 0;
+}
 
-.header img {width:80px; margin-left:50px;}
+.header img {
+    width: 80px;
+    margin-left: 50px;
+}
+
 @media (max-width: 767px) {
-.header img {margin-left:0;}
+    .header img {
+        margin-left: 0;
+    }
 }
 
-.form {padding-top:50px; width:100%;}
-
-.form h1 {text-align:center;}
-
-.formInput {display:flex; justify-content:center; padding-top:20px;}
-
-.paper {width:80%; padding:50px 19%; text-align:center;/* margin: 0px auto; */
+.form {
+    padding-top: 50px;
+    width: 100%;
 }
 
-.css-3su884-MuiPaper-root {background-color:#efefef!important;}
+.form h1 {
+    text-align: center;
+}
 
-.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {border-color:#000!important;}
+.formInput {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
 
-.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {margin-top:25px!important; width:80%!important;}
-.div-button {margin-top:25px!important; display:flex; justify-content:space-around;}
-.div-radio {margin-top:25px!important; display:flex; justify-content:space-around; align-items:center;}
+.paper {
+    width: 80%;
+    padding: 50px 19%;
+    text-align: center;
+    /* margin: 0px auto; */
+}
 
-.formInput table {font-family:arial,sans-serif; border-collapse:collapse; width:80%; margin:0 auto; margin-top:20px;}
-.formInput  th {border:1px solid #ddd;/* text-align: left; */
-padding:8px;}
-.formInput td:nth-last-child(odd) {display:flex; flex-direction:column; align-items:center;}
-.formInput tr:nth-child(even) {background-color:#ddd;}
-input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button {-webkit-appearance:none; margin:0;}
-input[type="number"] {-moz-appearance:textfield;}
-.totalTextField .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {text-align:center; cursor:not-allowed!important; font-size:20px; padding:10px; color:#00f!important;}
-.totalTextField .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {-webkit-text-fill-color:unset!important;}
+.css-3su884-MuiPaper-root {
+    background-color: #efefef !important;
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #000 !important;
+}
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    margin-top: 25px !important;
+    width: 80% !important;
+}
+
+.div-button {
+    margin-top: 25px !important;
+    display: flex;
+    justify-content: space-around;
+}
+
+.div-radio {
+    margin-top: 25px !important;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.formInput table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.formInput th {
+    border: 1px solid #ddd;
+    /* text-align: left; */
+    padding: 8px;
+}
+
+.formInput td:nth-last-child(odd) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formInput tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.totalTextField .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+    text-align: center;
+    cursor: not-allowed !important;
+    font-size: 20px;
+    padding: 10px;
+    color: #00f !important;
+}
+
+.totalTextField .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+    -webkit-text-fill-color: unset !important;
+}
 
 
 @media (max-width: 991px) {
-.paper {padding:50px 5%!important;}
+    .paper {
+        padding: 50px 5% !important;
+    }
 }
 
 @media (max-width: 767px) {
-.header img {margin-left:0;}
-.paper {padding:50px 0; width:90%;}
-.formInput table {width:90%; font-size:12px;}
-.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {width:90%!important;}
-.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {padding:5px 14px!important;}
-.css-ahj2mt-MuiTypography-root {font-size:12px!important;}
-.css-u4tvz2-MuiFormLabel-root {font-size:12px!important;}
-.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {font-size:12px!important;}
-.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {font-size:12px!important;}
+    .header img {
+        margin-left: 0;
+    }
+
+    .paper {
+        padding: 50px 0;
+        width: 90%;
+    }
+
+    .formInput table {
+        width: 90%;
+        font-size: 12px;
+    }
+
+    .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+        width: 90% !important;
+    }
+
+    .css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
+        padding: 5px 14px !important;
+    }
+
+    .css-ahj2mt-MuiTypography-root {
+        font-size: 12px !important;
+    }
+
+    .css-u4tvz2-MuiFormLabel-root {
+        font-size: 12px !important;
+    }
+
+    .MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+        font-size: 12px !important;
+    }
+
+    .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+        font-size: 12px !important;
+    }
 
 
 
@@ -59,36 +166,125 @@ input[type="number"] {-moz-appearance:textfield;}
 
 
 
-.imgLogo {display:flex; justify-content:center;}
+.imgLogo {
+    display: flex;
+    justify-content: center;
+}
 
-.imgLogo img{
-    height: 100px; border-width: 0px;
+.imgLogo img {
+    height: 100px;
+    border-width: 0px;
 }
-.deposite-div{
-    width: 32%; float: left; font-size: medium;
+
+.deposite-div {
+    width: 32%;
+    float: left;
+    font-size: medium;
 }
-.lblChallan_No{
+
+.lblChallan_No {
     display: inline-block;
     border-style: none;
 }
-.main-body-div{
-    margin-left: 2%; margin-right:2%;
+
+.main-body-div {
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 
 @media (max-width:767px) {
-.imgLogo img {height:50px;}
- .divFeePayment h5{
-    font-size: 6px ;
-}
-.deposite-div{
-    width: 32%; float: left; font-size: 8px;
-}
-.lblChallan_No{
-    font-size: 6px;
-}
-/* .main-body-div{
-    font-size: 6px;
-} */
+    body {
+        font-size: 4px !important;
+    }
+    
+    #divFeePayment {
+        width: 32% !important;
+        height: 270px !important;
+    }
 
+    .divBankLogo img {
+        height: 20px;
+    }
+
+    #imgLogo {
+        height: 30px !important;
+
+    }
+
+    #divFeePayment h5 {
+        font-size: 6px;
+    }
+
+    #lblBank_Account_No {
+        font-size: 4px;
+    }
+
+    #lblChallan_No {
+        font-size: 4px !important;
+
+    }
+
+    #lblChallan_Date {
+        font-size: 4px !important;
+    }
+
+    #lblBank_Account_Title {
+        font-size: 4px !important;
+    }
+    tbody{
+        font-size: 4px !important;
+    }
+    .signature{
+        font-size: 4px !important;
+    }
+}
+
+
+
+@media print {
+
+    body {
+        font-size: medium !important;
+    }
+
+    #divFeePayment {
+        width: 33% !important;
+        height: 700px !important;
+    }
+
+    .divBankLogo img {
+        height: 30px !important;
+    }
+
+    #imgLogo {
+        height: 100px !important;
+    }
+
+    #divFeePayment h5 {
+        font-size: medium;
+    }
+
+    #lblBank_Account_No {
+        font-size: medium;
+    }
+
+    #lblChallan_No {
+        font-size: medium !important;
+
+    }
+
+    #lblChallan_Date {
+        font-size: medium !important;
+    }
+
+    #lblBank_Account_Title {
+        font-size: medium !important;
+    }
+    tbody{
+        font-size: xx-small !important;
+    }
+    .signature{
+        font-size: xx-small !important;
+    }
 }

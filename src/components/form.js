@@ -32,40 +32,40 @@ const initalState = {
     fatherName: "",
     class: "",
     payment: "",
-    fees: 0,
-
+    feesTypes: {
+        tutionFees: 0,
+        admissionFees: 0,
+        securityDeposit: 0,
+        IctFees: 0,
+        otherFees: 0,
+    },
+    totalFees: 0,
 }
-const initalState2 = {
-    tutionFees: 0,
-    admissionFees: 0,
-    securityDeposit: 0,
-    IctFees: 0,
-    otherFees: 0
 
-}
 
 
 function Form() {
 
     const [value, setValue] = React.useState('cash');
     const [fields, setFields] = useState(initalState)
-    const [total, setTotal] = useState(initalState2)
-    let sum = 0
+    let sum = Number(0)
     const handleChange = (event) => {
         setValue(event.target.value);
     };
 
     const handleTotal = (e) => {
-        setTotal({
-            ...total,
-            [e.target.name]: parseInt(e.target.value)
+        setFields({
+            ...fields,
+            feesTypes: {
+                ...fields.feesTypes,
+                [e.target.name]: parseInt(e.target.value)
+            }
         })
-
     }
-    if (total.tutionFees != NaN) {
-        sum = total.tutionFees + total.admissionFees + + total.otherFees + total.securityDeposit + total.IctFees
+    for (let i in fields.feesTypes) {
+        sum = sum + parseInt(fields.feesTypes[i] || 0)
     }
-
+    console.log(fields)
 
     const onSubmit = () => {
 
@@ -113,7 +113,7 @@ function Form() {
                                     <tr>
                                         <td>Tuition Fee</td>
                                         <td>
-                                            <TextField id="outlined-basic" name='tutionFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                            <TextField id="outlined-basic" name='tutionFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} inputProps={{ inputMode: 'numeric', pattern: '{0-9}' }} /><br />
                                         </td>
                                     </tr>
                                     <tr>
@@ -144,7 +144,7 @@ function Form() {
                             </div>
 
                             <div className='div-amount'>
-                                <TextField className='totalTextField' style={{cursor:"not-allowed !important"}} id="outlined-basic" type="number" autoComplete='off' disabled value={sum} label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                <TextField className='totalTextField' style={{ cursor: "not-allowed !important" }} id="outlined-basic" type="number" autoComplete='off' disabled value={sum} label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
                             </div>
                             <div className='div-button'>
                                 <Button type='submit' style={{ backgroundColor: "#61aa79" }} variant="contained" defaultChecked >Post Challan</Button>
