@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import '../App.css'
 import Header from './Header.js'
 
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
@@ -49,8 +53,14 @@ function Form() {
     const [value, setValue] = React.useState('cash');
     const [fields, setFields] = useState(initalState)
     let sum = Number(0)
+    const navigate = useNavigate();
+
+    
     const handleChange = (event) => {
-        setValue(event.target.value);
+        setFields({
+            ...fields,
+            [event.target.name]:event.target.value
+        })
     };
 
     const handleTotal = (e) => {
@@ -67,7 +77,16 @@ function Form() {
     }
     console.log(fields)
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        e.preventDefault()
+        setFields({
+            ...fields,
+                [e.target.name]: e.target.value            
+        })
+        if (fields){
+            localStorage.setItem('data',JSON.stringify(fields))
+            navigate('/challan');
+        }
 
     }
     return (
@@ -82,10 +101,10 @@ function Form() {
                 <div className='formInput'>
                     <Paper className='paper' elevation={3} >
                         <form onSubmit={onSubmit}>
-                            <TextField id="outlined-basic" name='registrationNumber' label="Registration Number" variant="outlined" required />
-                            <TextField id="outlined-basic" name='name' label="Student Name" variant="outlined" required />
-                            <TextField id="outlined-basic" name='fatherName' label="Father Name" variant="outlined" required />
-                            <TextField id="outlined-basic" name='class' label="Class" variant="outlined" required /><br />
+                            <TextField id="outlined-basic" onChange={handleChange} name='registrationNumber' label="Registration Number" variant="outlined" required />
+                            <TextField id="outlined-basic" onChange={handleChange} name='name' label="Student Name" variant="outlined" required />
+                            <TextField id="outlined-basic" onChange={handleChange} name='fatherName' label="Father Name" variant="outlined" required />
+                            <TextField id="outlined-basic" onChange={handleChange} name='class' label="Class" variant="outlined" required /><br />
                             <div className='div-radio'>
                                 <FormLabel>Payment</FormLabel>
                                 <RadioGroup

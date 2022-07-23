@@ -1,10 +1,23 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import logo from '../assests/logo.png';
 import banklogo from '../assests/banklogo.svg'
 import '../App.css'
 
 function Challan() {
-  window.print();
+  const [data, setData] = useState()
+
+  useEffect(() => {
+      let a = localStorage.getItem('data')
+      console.log(a);
+      setData(JSON.parse(a))
+  }, [])
+  
+  console.log(data,"=============")
+
+  useEffect(() => {
+    window.print()
+  }, [data])
+  
   return (
     <div>
       <style type="text/css" dangerouslySetInnerHTML={{ __html: "\n        .style-caption {\n            width: 35%;\n            float: left;\n        }\n\n        .style-caption-value {\n            margin-left: 35%;\n        }\n    " }} />
@@ -71,7 +84,7 @@ function Challan() {
                   Student Name
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblStd_Name_Bank">Muhammad Saif Khan</span>
+                  <span id="lblStd_Name_Bank">{data?data.name:"abcd"}</span>
                 </div>
               </div>
               <div>
@@ -473,6 +486,7 @@ function Challan() {
       </form>
     </div>
   );
+
 }
 
 export default Challan
