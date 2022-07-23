@@ -30,12 +30,22 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Hidden } from '@mui/material';
 
 
+var dateObj = new Date();
+var month = dateObj.getUTCMonth() + 1; //months from 1-12
+var day = dateObj.getUTCDate() + 1;
+var year = dateObj.getUTCFullYear();
+
+const newDate = `${day}-${month}-   ${year}`;
+
+// const depositSlip = '000000001';
+
 const initalState = {
     registrationNumber: "",
     name: "",
     fatherName: "",
     class: "",
     payment: "",
+    newDate,
     feesTypes: {
         tutionFees: 0,
         admissionFees: 0,
@@ -49,9 +59,15 @@ const initalState = {
 
 
 function Form() {
+  
+
+    console.log('newDate===>',newDate)
+    
+   
 
     const [value, setValue] = React.useState('cash');
-    const [fields, setFields] = useState(initalState)
+    const [fields, setFields] = useState(initalState);
+    const [depositeSlip,setDepositeSlip] = useState(0);
     let sum = Number(0)
     const navigate = useNavigate();
 
@@ -84,7 +100,12 @@ function Form() {
                 [e.target.name]: e.target.value            
         })
         if (fields){
-            localStorage.setItem('data',JSON.stringify(fields))
+            setDepositeSlip((depositeSlip)=> depositeSlip + 1)
+            
+            localStorage.setItem('data',JSON.stringify(fields));
+            localStorage.setItem('depositeSlip',depositeSlip)
+            
+            
             navigate('/challan');
         }
 

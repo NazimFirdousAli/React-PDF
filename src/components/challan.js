@@ -1,10 +1,12 @@
 import React,{useEffect,useState} from 'react'
 import logo from '../assests/logo.png';
 import banklogo from '../assests/banklogo.svg'
-import '../App.css'
+import '../App.css';
+import converter from 'number-to-words';
 
 function Challan() {
-  const [data, setData] = useState()
+  const [data, setData] = useState();
+  const [fees,setFees] = useState({});
 
   useEffect(() => {
       let a = localStorage.getItem('data')
@@ -14,9 +16,28 @@ function Challan() {
   
   console.log(data,"=============")
 
-  useEffect(() => {
-    window.print()
-  }, [data])
+  let feeTypes = data ? data.feesTypes : '';
+
+  console.log('feesTypes==>',feeTypes);
+
+
+  let totalFees = 0;
+  for (const key in feeTypes) {
+
+    console.log(`${key}: ${feeTypes[key]}`);
+    totalFees += feeTypes[key];
+   
+}
+
+console.log('totalfees===>',totalFees);
+
+const convertData = converter.toWords(totalFees);
+
+console.log(convertData)
+
+  // useEffect(() => {
+  //   window.print()
+  // }, [data])
   
   return (
     <div>
@@ -61,7 +82,7 @@ function Challan() {
                   </div>
                   <div style={{ width: '65%', float: 'right' }}>
                     <b>
-                      <span >18-Mar-2022</span></b>
+                      <span>{data ? data.newDate : ''}</span></b>
                   </div>
                 </div>
                 <span id="lblMessage" />
@@ -84,7 +105,7 @@ function Challan() {
                   Student Name
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblStd_Name_Bank">{data?data.name:"abcd"}</span>
+                  <span id="lblStd_Name_Bank">{data?data.name:""}</span>
                 </div>
               </div>
               <div>
@@ -92,7 +113,7 @@ function Challan() {
                   <span id="lblReg_Adm_No_Title_Bank">Class</span>
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblReg_Adm_No_Bank">1612196</span>
+                  <span id="lblReg_Adm_No_Bank">{data ? data.class : ''}</span>
                 </div>
               </div>
               <div>
@@ -100,7 +121,7 @@ function Challan() {
                   Contact No.
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblContact_No_Bank">03349090910</span>
+                  <span id="lblContact_No_Bank">0334-9090910</span>
                 </div>
               </div>
               <div style={{ marginTop: '1%' }}>
@@ -124,9 +145,27 @@ function Challan() {
                   <table cellSpacing={0} rules="all" border={1} id="dgvPayment_Detail_Bank" style={{ fontSize: 'Smaller', borderCollapse: 'collapse' }}>
                     <tbody><tr style={{borderWidth:'1px'}}>
                       <th scope="col" style={{ width: '2000px' }}>PARTICULARS</th><th scope="col">Amount</th>
-                    </tr><tr>
-                        <td>Tuition Fee</td><td align="right">1,000</td>
-                      </tr>
+                    </tr>
+                        {/* <td>Tuition Fee</td><td align="right">1,000</td> */}
+                        
+                         {
+                          Object.keys(feeTypes).map((val,index)=>{
+                            return(
+                            <>
+                            {
+                              feeTypes[val] !== 0 && 
+                              <tr key={index} style={{border : "1px solid"}}>
+                                    <td>{val}</td><td align="right">{feeTypes[val]}</td>
+                                  <br/>
+                            </tr>
+                            }
+                      
+
+                            </>
+                            )
+                          })
+                         }
+
                     </tbody></table>
                 </div>
                 <div>
@@ -135,7 +174,7 @@ function Challan() {
                   </div>
                   <div style={{ float: 'right', textAlign: 'right', borderBottomStyle: 'double' }}>
                     <b>
-                      <span id="lblTotal_Fee_Amount_Bank" style={{ textDecoration: 'none' }}>1,000</span></b>
+                      <span id="lblTotal_Fee_Amount_Bank" style={{ textDecoration: 'none' }}>{totalFees}</span></b>
                   </div>
                 </div>
                 <br />
@@ -148,7 +187,7 @@ function Challan() {
                 </div>
                 <div>
                   <b>Rupees
-                    <span id="lblAmount_in_Words_Bank">One Thousand </span>
+                    <span id="lblAmount_in_Words_Bank"> {convertData} </span>
                     Only.
                   </b>
                 </div>
@@ -210,7 +249,7 @@ function Challan() {
                   </div>
                   <div style={{ width: '65%', float: 'right' }}>
                     <b>
-                      <span>18-Mar-2022</span></b>
+                    <span>{data ? data.newDate : ''}</span></b>
                   </div>
                 </div>
                 <span id="Label1" />
@@ -233,7 +272,7 @@ function Challan() {
                   Student Name
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblStd_Name_Institute">Muhammad Saif Khan</span>
+                  <span id="lblStd_Name_Institute">{data ? data.name :"" }</span>
                 </div>
               </div>
               <div>
@@ -241,7 +280,7 @@ function Challan() {
                   <span id="lblReg_Adm_No_Title_Institute">Class</span>
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblReg_Adm_No_Institute">1612196</span>
+                  <span id="lblReg_Adm_No_Institute">{data ? data.class : ""}</span>
                 </div>
               </div>
               <div>
@@ -249,7 +288,7 @@ function Challan() {
                   Contact No.
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblContact_No_Institute">03349090910</span>
+                  <span id="lblContact_No_Institute">0334-9090910</span>
                 </div>
               </div>
               <div style={{ marginTop: '1%' }}>
@@ -273,9 +312,26 @@ function Challan() {
                   <table cellSpacing={0} rules="all" border={1} id="dgvPayment_Detail_Institute" style={{ fontSize: 'Smaller', borderCollapse: 'collapse' }}>
                     <tbody><tr style={{borderWidth:'1px'}}>
                       <th scope="col" style={{ width: '500px' }}>PARTICULARS</th><th scope="col">Amount</th>
-                    </tr><tr>
-                        <td>Tuition Fee</td><td align="right">1,000</td>
-                      </tr>
+                    </tr>
+                        {/* <td>Tuition Fee</td><td align="right">1,000</td> */}
+                        {
+                          Object.keys(feeTypes).map((val,index)=>{
+                            return(
+                            <>
+                            {
+                              feeTypes[val] !== 0 && 
+                              <tr key={index} style={{border : "1px solid"}}>
+                                    <td>{val}</td><td align="right">{feeTypes[val]}</td>
+                                  <br/>
+                            </tr>
+                            }
+                      
+
+                            </>
+                            )
+                          })
+                         }
+                  
                     </tbody></table>
                 </div>
                 <div>
@@ -284,7 +340,7 @@ function Challan() {
                   </div>
                   <div style={{ float: 'right', textAlign: 'right', borderBottomStyle: 'double' }}>
                     <b>
-                      <span id="lblTotal_Fee_Amount_Institute">1,000</span></b>
+                      <span id="lblTotal_Fee_Amount_Institute">{totalFees}</span></b>
                   </div>
                 </div>
                 <br />
@@ -297,7 +353,7 @@ function Challan() {
                 </div>
                 <div>
                   <b>Rupees
-                    <span id="lblAmount_in_Words_Institute">One Thousand </span>
+                    <span id="lblAmount_in_Words_Institute"> {convertData} </span>
                     Only.
                   </b>
                 </div>
@@ -363,7 +419,7 @@ function Challan() {
                   </div>
                   <div style={{ width: '65%', float: 'right' }}>
                     <b>
-                      <span >18-Mar-2022</span></b>
+                      <span >{data ? data.newDate : ""}</span></b>
                   </div>
                 </div>
                 <span id="Label2" />
@@ -386,7 +442,7 @@ function Challan() {
                   Student Name
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblStd_Name_Student">Muhammad Saif Khan</span>
+                  <span id="lblStd_Name_Student">{data ? data.name : ''}</span>
                 </div>
               </div>
               <div>
@@ -394,7 +450,7 @@ function Challan() {
                   <span id="lblReg_Adm_No_Title_Student">Class</span>
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblReg_Adm_No_Student">1612196</span>
+                  <span id="lblReg_Adm_No_Student">{data ? data.class : ""}</span>
                 </div>
               </div>
               <div>
@@ -402,7 +458,7 @@ function Challan() {
                   Contact No.
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblContact_No_Student">03349090910</span>
+                  <span id="lblContact_No_Student">0334-9090910</span>
                 </div>
               </div>
               <div style={{ marginTop: '1%' }}>
@@ -426,9 +482,27 @@ function Challan() {
                   <table cellSpacing={0} rules="all" border={1} id="dgvPayment_Detail_Student" style={{ fontSize: 'Smaller', borderCollapse: 'collapse' }}>
                     <tbody><tr style={{borderWidth:'1px'}}>
                       <th scope="col" style={{ width: '500px' }}>PARTICULARS</th><th scope="col">Amount</th>
-                    </tr><tr >
-                        <td>Tuition Fee</td><td align="right">1,000</td>
-                      </tr>
+                    </tr>
+                    {
+                          Object.keys(feeTypes).map((val,index)=>{
+                            return(
+                            <>
+                            {
+                              feeTypes[val] !== 0 && 
+                                    <tr key={index} style={{border : "1px solid"}}>
+                                    <td>{val}</td><td align="right">{feeTypes[val]}</td>
+                                  <br/>
+                            </tr>
+                            }
+                      
+
+                            </>
+                            )
+                          })
+                         }
+                  
+                      
+                    
                     </tbody></table>
                 </div>
                 <div>
@@ -437,7 +511,7 @@ function Challan() {
                   </div>
                   <div style={{ float: 'right', textAlign: 'right', borderBottomStyle: 'double' }}>
                     <b>
-                      <span id="lblTotal_Fee_Amount_Student">1,000</span></b>
+                      <span id="lblTotal_Fee_Amount_Student">{totalFees}</span></b>
                   </div>
                 </div>
                 <br />
@@ -450,7 +524,7 @@ function Challan() {
                 </div>
                 <div>
                   <b>Rupees
-                    <span id="lblAmount_in_Words_Student">One Thousand </span>
+                    <span id="lblAmount_in_Words_Student"> {convertData} </span>
                     Only.
                   </b>
                 </div>
