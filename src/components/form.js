@@ -33,7 +33,7 @@ import { makeStyles } from '@mui/styles';
 
 var dateObj = new Date();
 var month = dateObj.getUTCMonth() + 1; //months from 1-12
-var day = dateObj.getUTCDate() + 1;
+var day = dateObj.getUTCDate();
 var year = dateObj.getUTCFullYear();
 
 const newDate = `${day}-${month}-   ${year}`;
@@ -48,11 +48,11 @@ const initalState = {
     payment: "",
     newDate,
     feesTypes: {
-        tutionFees: 0,
-        admissionFees: 0,
-        securityDeposit: 0,
-        IctFees: 0,
-        otherFees: 0,
+        tution_Fees: 0,
+        admission_Fees: 0,
+        security_Deposit: 0,
+        Ict_Fees: 0,
+        other_Fees: 0,
     },
     totalFees: 0,
 }

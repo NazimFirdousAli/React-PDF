@@ -68,7 +68,7 @@ console.log(convertData)
                 <h5>BANK VOUCHER (Bank Copy)</h5>
               </div>
               <div className="divBankLogo" style={{ width: '100%', textAlign: 'center' }}>
-                <img  src={banklogo} style={{ borderWidth: '0px', width: '70%' }} />
+                <img  src={banklogo} style={{ borderWidth: '0px', width: '50%' }} />
               </div>
               <div id="lblBank_Account_No" style={{ textAlign: 'center' }}>
                 <b>Account #
@@ -89,7 +89,7 @@ console.log(convertData)
                 </div>
                 <div id="lblChallan_Date">
                   <div className="style-caption">
-                    <b>Date</b>
+                    <b>Challan Post Date</b>
                   </div>
                   <div style={{ width: '65%', float: 'right' }}>
                     <b>
@@ -129,10 +129,10 @@ console.log(convertData)
               </div>
               <div>
                 <div className="style-caption">
-                  Contact No.
+                Registration Number
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblContact_No_Bank">0334-9090910</span>
+                  <span id="lblContact_No_Bank">{data ? data.registrationNumber : ''}</span>
                 </div>
               </div>
               <div style={{ marginTop: '1%' }}>
@@ -166,7 +166,7 @@ console.log(convertData)
                             {
                               feeTypes[val] !== 0 && 
                               <tr key={index} style={{border : "1px solid"}}>
-                                    <td>{val}</td><td align="right">{feeTypes[val]}</td>
+                                    <td>{val.replace('_',' ').toUpperCase() }</td><td align="right">{feeTypes[val]}</td>
                                   <br/>
                             </tr>
                             }
@@ -188,7 +188,6 @@ console.log(convertData)
                       <span id="lblTotal_Fee_Amount_Bank" style={{ textDecoration: 'none' }}>{totalFees}</span></b>
                   </div>
                 </div>
-                <br />
                 <br />
                 <br />
               </div>
@@ -235,7 +234,7 @@ console.log(convertData)
                 <h5>BANK VOUCHER (School Copy)</h5>
               </div>
               <div className="divBankLogo" style={{ width: '100%', textAlign: 'center' }}>
-                <img  src={banklogo} style={{ borderWidth: '0px', width: '70%' }} />
+                <img  src={banklogo} style={{ borderWidth: '0px', width: '50%' }} />
               </div>
               <div id="lblBank_Account_No" style={{ textAlign: 'center' }}>
                 <b>Account #
@@ -296,10 +295,10 @@ console.log(convertData)
               </div>
               <div>
                 <div className="style-caption">
-                  Contact No.
+                  Registration Number
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblContact_No_Institute">0334-9090910</span>
+                  <span id="lblContact_No_Institute">{data ? data.registrationNumber : ''}</span>
                 </div>
               </div>
               <div style={{ marginTop: '1%' }}>
@@ -332,7 +331,7 @@ console.log(convertData)
                             {
                               feeTypes[val] !== 0 && 
                               <tr key={index} style={{border : "1px solid"}}>
-                                    <td>{val}</td><td align="right">{feeTypes[val]}</td>
+                                    <td>{val.replace('_',' ').toUpperCase()}</td><td align="right">{feeTypes[val]}</td>
                                   <br/>
                             </tr>
                             }
@@ -354,7 +353,6 @@ console.log(convertData)
                       <span id="lblTotal_Fee_Amount_Institute">{totalFees}</span></b>
                   </div>
                 </div>
-                <br />
                 <br />
                 <br />
               </div>
@@ -405,7 +403,7 @@ console.log(convertData)
                 <h5>BANK VOUCHER (Student Copy)</h5>
               </div>
               <div className="divBankLogo" style={{ width: '100%', textAlign: 'center' }}>
-                <img  src={banklogo} style={{ borderWidth: '0px', width: "70%" }} />
+                <img  src={banklogo} style={{ borderWidth: '0px', width: "50%" }} />
               </div>
               <div id="lblBank_Account_No" style={{ textAlign: 'center' }}>
                 <b>Account #
@@ -466,10 +464,10 @@ console.log(convertData)
               </div>
               <div>
                 <div className="style-caption">
-                  Contact No.
+                  Registration Number.
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblContact_No_Student">0334-9090910</span>
+                  <span id="lblContact_No_Student">{data ? data.registrationNumber : ''}</span>
                 </div>
               </div>
               <div style={{ marginTop: '1%' }}>
@@ -501,7 +499,7 @@ console.log(convertData)
                             {
                               feeTypes[val] !== 0 && 
                                     <tr key={index} style={{border : "1px solid"}}>
-                                    <td>{val}</td><td align="right">{feeTypes[val]}</td>
+                                    <td>{val.replace("_", " ").toUpperCase()}</td><td align="right">{feeTypes[val]}</td>
                                   <br/>
                             </tr>
                             }
@@ -528,7 +526,6 @@ console.log(convertData)
                 <br />
                 <br />
               </div>
-              <br />
               <div style={{ fontSize: 'smaller' }}>
                 <div>
                   <b><u>Amount in words</u></b>
