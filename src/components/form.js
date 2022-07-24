@@ -142,7 +142,7 @@ function Form() {
                                     style={{ justifyContent: "center" }}
                                 >
                                     <FormControlLabel value="cash" control={<Radio />} label="Cash" />
-                                    <FormControlLabel value="payOrder" control={<Radio />} label="Pay Order" />
+                                    <FormControlLabel value="payOrder" control={<Radio />} label="Pay Order" disabled />
                                 </RadioGroup>
                             </div>
                             <div>
@@ -172,14 +172,14 @@ function Form() {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>ICT lab fees</td>
+                                        <td>ICT Lab Fees</td>
                                         <td>
                                             <TextField id="outlined-basic" name='IctFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
 
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Other fees</td>
+                                        <td>Other Fees</td>
                                         <td>
                                             <TextField id="outlined-basic" name='otherFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
                                         </td>

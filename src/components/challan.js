@@ -89,7 +89,7 @@ console.log(convertData)
                 </div>
                 <div id="lblChallan_Date">
                   <div className="style-caption">
-                    <b>Challan Post Date</b>
+                    <b>Challan Date</b>
                   </div>
                   <div style={{ width: '65%', float: 'right' }}>
                     <b>
@@ -116,7 +116,7 @@ console.log(convertData)
                   Student Name
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblStd_Name_Bank">{data?data.name:""}</span>
+                  <span id="lblStd_Name_Bank">{data?data.name.toUpperCase():""}</span>
                 </div>
               </div>
               <div>
@@ -255,7 +255,7 @@ console.log(convertData)
                 </div>
                 <div id="lblChallan_Date">
                   <div className="style-caption">
-                    <b>Date</b>
+                    <b>Challan Date</b>
                   </div>
                   <div style={{ width: '65%', float: 'right' }}>
                     <b>
@@ -282,7 +282,7 @@ console.log(convertData)
                   Student Name
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblStd_Name_Institute">{data ? data.name :"" }</span>
+                  <span id="lblStd_Name_Institute">{data?data.name.toUpperCase():""}</span>
                 </div>
               </div>
               <div>
@@ -424,7 +424,7 @@ console.log(convertData)
                 </div>
                 <div id="lblChallan_Date">
                   <div className="style-caption">
-                    <b>Date</b>
+                    <b>Challan Date</b>
                   </div>
                   <div style={{ width: '65%', float: 'right' }}>
                     <b>
@@ -451,7 +451,7 @@ console.log(convertData)
                   Student Name
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
-                  <span id="lblStd_Name_Student">{data ? data.name : ''}</span>
+                  <span id="lblStd_Name_Student">{data?data.name.toUpperCase():""}</span>
                 </div>
               </div>
               <div>
