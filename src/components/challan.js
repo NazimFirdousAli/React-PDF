@@ -8,8 +8,12 @@ function Challan() {
   const [data, setData] = useState();
   const [fees,setFees] = useState({});
 
+
+
+
   useEffect(() => {
-      let a = localStorage.getItem('data')
+      let a = localStorage.getItem('data');
+      // setDepositeSlip(depositeSlipValue + 1);
       console.log(a);
       setData(JSON.parse(a))
   }, [])
@@ -19,6 +23,13 @@ function Challan() {
   let feeTypes = data ? data.feesTypes : '';
 
   console.log('feesTypes==>',feeTypes);
+
+
+
+
+  const depositeSlipValue = localStorage.getItem('depositeSlip')
+
+  console.log('depositeSlip====>',depositeSlipValue)
 
 
   let totalFees = 0;
@@ -71,7 +82,7 @@ console.log(convertData)
                   </div>
                   <div id="lblChallan_No" style={{ borderStyle: 'ridge', borderWidth: 'thin', width: '65%', float: 'right', font: 'bolder', fontWeight: 'bolder', fontSize: 'medium' }}>
                     &nbsp;
-                    <span >000000000085657</span>
+                    <span>{depositeSlipValue}</span>
                   </div>
                 </div>
                 <div style={{ width: '100%', overflow: 'hidden' }}>
@@ -238,7 +249,7 @@ console.log(convertData)
                   </div>
                   <div id="lblChallan_No" style={{ borderStyle: 'ridge', borderWidth: 'thin', width: '65%', float: 'right', font: 'bolder', fontWeight: 'bolder', fontSize: 'medium' }}>
                     &nbsp;
-                    <span>000000000085657</span>
+                    <span>{depositeSlipValue}</span>
                   </div>
                 </div>
                 <div style={{ width: '100%', overflow: 'hidden' }}>
@@ -408,7 +419,7 @@ console.log(convertData)
                   </div>
                   <div id="lblChallan_No" style={{ borderStyle: 'ridge', borderWidth: 'thin', width: '65%', float: 'right', font: 'bolder', fontWeight: 'bolder', fontSize: 'medium' }}>
                     &nbsp;
-                    <span style={{ display: 'inline-block', borderStyle: 'None' }}>000000000085657</span>
+                    <span style={{ display: 'inline-block', borderStyle: 'None' }}>{depositeSlipValue}</span>
                   </div>
                 </div>
                 <div style={{ width: '100%', overflow: 'hidden' }}>

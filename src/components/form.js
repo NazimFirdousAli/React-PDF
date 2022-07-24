@@ -28,6 +28,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Hidden } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 
 var dateObj = new Date();
@@ -67,9 +68,12 @@ function Form() {
 
     const [value, setValue] = React.useState('cash');
     const [fields, setFields] = useState(initalState);
-    const [depositeSlip,setDepositeSlip] = useState(0);
+    const depositeSlipValue = localStorage.getItem('depositeSlip');
+    const [depositeSlip,setDepositeSlip] = useState(depositeSlipValue? parseInt(depositeSlipValue) + 1: 1);
     let sum = Number(0)
     const navigate = useNavigate();
+    const classes = useStyles();
+
 
     
     const handleChange = (event) => {
@@ -100,13 +104,14 @@ function Form() {
                 [e.target.name]: e.target.value            
         })
         if (fields){
-            setDepositeSlip((depositeSlip)=> depositeSlip + 1)
-            
+                   
+
             localStorage.setItem('data',JSON.stringify(fields));
-            localStorage.setItem('depositeSlip',depositeSlip)
-            
-            
             navigate('/challan');
+      localStorage.setItem('depositeSlip',depositeSlip);
+
+    
+         
         }
 
     }
@@ -126,7 +131,7 @@ function Form() {
                             <TextField id="outlined-basic" onChange={handleChange} name='name' label="Student Name" variant="outlined" required />
                             <TextField id="outlined-basic" onChange={handleChange} name='fatherName' label="Father Name" variant="outlined" required />
                             <TextField id="outlined-basic" onChange={handleChange} name='class' label="Class" variant="outlined" required /><br />
-                            <div className='div-radio'>
+                            <div className={classes.div_radio}>
                                 <FormLabel>Payment</FormLabel>
                                 <RadioGroup
                                     row
@@ -184,7 +189,7 @@ function Form() {
                             </div>
 
                             <div className='div-amount'>
-                                <TextField className='totalTextField' style={{ cursor: "not-allowed !important" }} id="outlined-basic" type="number" autoComplete='off' disabled value={sum} label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                <TextField className={classes.not_allowed_cursor} id="outlined-basic" type="number" autoComplete='off' disabled value={sum} label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
                             </div>
                             <div className='div-button'>
                                 <Button type='submit' style={{ backgroundColor: "#61aa79" }} variant="contained" defaultChecked >Post Challan</Button>
@@ -198,6 +203,33 @@ function Form() {
         </div>
 
     )
+};
+
+
+const useStyles = makeStyles({
+not_allowed_cursor : {
+    cursor: "not-allowed !important",
+    textAlign: 'center',
+    cursor: 'not-allowed !important',
+    fontSize: '20px',
+    padding: '10px',
+    color: '#00f !important',
+},
+div_radio : {
+    marginTop: '25px !important',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+},
+
+form_input : {
+    fontFamily: 'arial, sans-serif',
+    'border-collapse': 'collapse !important',
+    width: '80% !important',
+    margin: '0 auto !important',
+    marginTop: '20px !important',
 }
 
-export default Form
+})
+
+export default Form;
