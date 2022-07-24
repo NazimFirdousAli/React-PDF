@@ -36,7 +36,7 @@ var month = dateObj.getUTCMonth() + 1; //months from 1-12
 var day = dateObj.getUTCDate();
 var year = dateObj.getUTCFullYear();
 
-const newDate = `${day}-${month}-   ${year}`;
+const newDate = `${day}-${month}-${year}`;
 
 // const depositSlip = '000000001';
 
@@ -60,26 +60,23 @@ const initalState = {
 
 
 function Form() {
-  
 
-    console.log('newDate===>',newDate)
-    
-   
+
+    console.log('newDate===>', newDate)
+
+
 
     const [value, setValue] = React.useState('cash');
     const [fields, setFields] = useState(initalState);
     const depositeSlipValue = localStorage.getItem('depositeSlip');
-    const [depositeSlip,setDepositeSlip] = useState(depositeSlipValue? parseInt(depositeSlipValue) + 1: 1);
+    const [depositeSlip, setDepositeSlip] = useState(depositeSlipValue ? parseInt(depositeSlipValue) + 1 : 1);
     let sum = Number(0)
     const navigate = useNavigate();
-    const classes = useStyles();
 
-
-    
     const handleChange = (event) => {
         setFields({
             ...fields,
-            [event.target.name]:event.target.value
+            [event.target.name]: event.target.value
         })
     };
 
@@ -101,20 +98,22 @@ function Form() {
         e.preventDefault()
         setFields({
             ...fields,
-                [e.target.name]: e.target.value            
+            [e.target.name]: e.target.value
         })
-        if (fields){
-                   
+        if (fields) {
 
-            localStorage.setItem('data',JSON.stringify(fields));
+
+            localStorage.setItem('data', JSON.stringify(fields));
             navigate('/challan');
-      localStorage.setItem('depositeSlip',depositeSlip);
+            localStorage.setItem('depositeSlip', depositeSlip);
 
-    
-         
+
+
         }
 
     }
+    const classes = useStyles();
+
     return (
         <div>
             <Header />
@@ -127,10 +126,10 @@ function Form() {
                 <div className='formInput'>
                     <Paper className='paper' elevation={3} >
                         <form onSubmit={onSubmit}>
-                            <TextField id="outlined-basic" onChange={handleChange} name='registrationNumber' label="Registration Number" variant="outlined" required />
-                            <TextField id="outlined-basic" onChange={handleChange} name='name' label="Student Name" variant="outlined" required />
-                            <TextField id="outlined-basic" onChange={handleChange} name='fatherName' label="Father Name" variant="outlined" required />
-                            <TextField id="outlined-basic" onChange={handleChange} name='class' label="Class" variant="outlined" required /><br />
+                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='registrationNumber' label="Registration Number" variant="outlined" required />
+                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='name' label="Student Name" variant="outlined" required />
+                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='fatherName' label="Father Name" variant="outlined" required />
+                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='class' label="Class" variant="outlined" required /><br />
                             <div className={classes.div_radio}>
                                 <FormLabel>Payment</FormLabel>
                                 <RadioGroup
@@ -140,13 +139,14 @@ function Form() {
                                     value={value}
                                     onChange={handleChange}
                                     style={{ justifyContent: "center" }}
+                                    className='radio'
                                 >
-                                    <FormControlLabel value="cash" control={<Radio />} label="Cash" />
-                                    <FormControlLabel value="payOrder" control={<Radio />} label="Pay Order" disabled />
+                                    <FormControlLabel className='radioButton' value="cash" control={<Radio />} label="Cash" />
+                                    <FormControlLabel className='radioButton' value="payOrder" control={<Radio />} label="Pay Order" disabled />
                                 </RadioGroup>
                             </div>
                             <div>
-                                <TextField id="outlined-basic" label="FM Public School Account Number" variant="outlined" value="Bank al habib 0042-7901-4053-02" disabled /><br />
+                                <TextField className='inputField' id="outlined-basic" label="FM Public School Account Number" variant="outlined" value="Bank al habib 0042-7901-4053-02" disabled /><br />
                             </div>
                             <div>
 
@@ -158,30 +158,30 @@ function Form() {
                                     <tr>
                                         <td>Tuition Fee</td>
                                         <td>
-                                            <TextField id="outlined-basic" name='tutionFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} inputProps={{ inputMode: 'numeric', pattern: '{0-9}' }} /><br />
+                                            <TextField className='inputField' id="outlined-basic responsiveMob" name='tutionFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} inputProps={{ inputMode: 'numeric', pattern: '{0-9}' }} /><br />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Admission Fees</td>
-                                        <td><TextField id="outlined-basic" name='admissionFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br /></td>
+                                        <td><TextField className='inputField' id="outlined-basic responsiveMob" name='admissionFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br /></td>
                                     </tr>
                                     <tr>
                                         <td>Security Deposit</td>
                                         <td>
-                                            <TextField id="outlined-basic" name='securityDeposit' type="number" onChange={handleTotal} autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                            <TextField className='inputField' id="outlined-basic responsiveMob" name='securityDeposit' type="number" onChange={handleTotal} autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>ICT Lab Fees</td>
                                         <td>
-                                            <TextField id="outlined-basic" name='IctFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                            <TextField className='inputField' id="outlined-basic responsiveMob" name='IctFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
 
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Other Fees</td>
                                         <td>
-                                            <TextField id="outlined-basic" name='otherFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                            <TextField className='inputField' id="outlined-basic responsiveMob" name='otherFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
                                         </td>
                                     </tr>
                                 </table>
@@ -189,7 +189,7 @@ function Form() {
                             </div>
 
                             <div className='div-amount'>
-                                <TextField className={classes.not_allowed_cursor} id="outlined-basic" type="number" autoComplete='off' disabled value={sum} label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                <TextField className='not_allowed_cursor' id="outlined-basic" type="number" autoComplete='off' disabled value={sum} label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
                             </div>
                             <div className='div-button'>
                                 <Button type='submit' style={{ backgroundColor: "#61aa79" }} variant="contained" defaultChecked >Post Challan</Button>
@@ -207,29 +207,12 @@ function Form() {
 
 
 const useStyles = makeStyles({
-not_allowed_cursor : {
-    cursor: "not-allowed !important",
-    textAlign: 'center',
-    cursor: 'not-allowed !important',
-    fontSize: '20px',
-    padding: '10px',
-    color: '#00f !important',
-},
-div_radio : {
-    marginTop: '25px !important',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-},
-
-form_input : {
-    fontFamily: 'arial, sans-serif',
-    'border-collapse': 'collapse !important',
-    width: '80% !important',
-    margin: '0 auto !important',
-    marginTop: '20px !important',
-}
-
+    div_radio: {
+        marginTop: '25px !important',
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+    },
 })
 
 export default Form;
