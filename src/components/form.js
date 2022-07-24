@@ -70,14 +70,21 @@ function Form() {
     const [fields, setFields] = useState(initalState);
     const depositeSlipValue = localStorage.getItem('depositeSlip');
     const [depositeSlip, setDepositeSlip] = useState(depositeSlipValue ? parseInt(depositeSlipValue) + 1 : 1);
+    const [error1, seterror1] = useState(false)
+    const [error2, seterror2] = useState(false)
+    const [error3, seterror3] = useState(false)
+    const [error4, seterror4] = useState(false)
+
     let sum = Number(0)
     const navigate = useNavigate();
 
     const handleChange = (event) => {
-        setFields({
+    setFields({
             ...fields,
             [event.target.name]: event.target.value
         })
+
+
     };
 
     const handleTotal = (e) => {
@@ -92,14 +99,40 @@ function Form() {
     for (let i in fields.feesTypes) {
         sum = sum + parseInt(fields.feesTypes[i] || 0)
     }
-    console.log(fields)
+    console.log(error1, error2, error3)
+
 
     const onSubmit = (e) => {
         e.preventDefault()
+        //  if (fields.registrationNumber == '') {
+        //     seterror1(true)
+        // }
+        // else{
+        //     seterror1(false)
+        // }
+        // if (fields.studentName === '') {
+        //     seterror2(true)
+        // }
+        // else{
+        //     seterror2(false)
+        // }
+        // if (fields.fatherName === '') {
+        //     seterror3(true)
+        // }
+        // else{
+        //     seterror3(false)
+        // }
+        // if (fields.class === '') {
+        //     seterror4(true)
+        // }
+        // else{
+        //     seterror4(false)
+        // }
         setFields({
             ...fields,
             [e.target.name]: e.target.value
         })
+
         if (fields) {
 
 
@@ -126,10 +159,10 @@ function Form() {
                 <div className='formInput'>
                     <Paper className='paper' elevation={3} >
                         <form onSubmit={onSubmit}>
-                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='registrationNumber' label="Registration Number" variant="outlined" required />
-                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='name' label="Student Name" variant="outlined" required />
-                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='fatherName' label="Father Name" variant="outlined" required />
-                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='class' label="Class" variant="outlined" required /><br />
+                            <TextField  className='inputField' id="outlined-basic" onChange={handleChange} name='registrationNumber' label="Registration Number" variant="outlined" error={error1} required />
+                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='name' label="Student Name" variant="outlined" error={error2} required />
+                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='fatherName' label="Father Name" variant="outlined" error={error3} required />
+                            <TextField className='inputField' id="outlined-basic" onChange={handleChange} name='class' label="Class" variant="outlined" error={error4} required /><br />
                             <div className={classes.div_radio}>
                                 <FormLabel>Payment</FormLabel>
                                 <RadioGroup
@@ -158,23 +191,23 @@ function Form() {
                                     <tr>
                                         <td>Tuition Fee</td>
                                         <td>
-                                            <TextField className='inputField' id="outlined-basic responsiveMob" name='tutionFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} inputProps={{ inputMode: 'numeric', pattern: '{0-9}' }} /><br />
+                                            <TextField className='inputField' id="outlined-basic responsiveMob" name='tutionFees' onChange={handleTotal} type="number"   onWheel={(e) => e.target.blur()} autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} inputProps={{ inputMode: 'numeric', pattern: '{0-9}' }}  /><br />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Admission Fees</td>
-                                        <td><TextField className='inputField' id="outlined-basic responsiveMob" name='admissionFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br /></td>
+                                        <td><TextField className='inputField' id="outlined-basic responsiveMob" name='admissionFees' onChange={handleTotal} type="number" onWheel={(e) => e.target.blur()} autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br /></td>
                                     </tr>
                                     <tr>
                                         <td>Security Deposit</td>
                                         <td>
-                                            <TextField className='inputField' id="outlined-basic responsiveMob" name='securityDeposit' type="number" onChange={handleTotal} autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                            <TextField className='inputField' id="outlined-basic responsiveMob" name='securityDeposit' type="number" onWheel={(e) => e.target.blur()} onChange={handleTotal} autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>ICT Lab Fees</td>
+                                        <td>Computer Lab Fees</td>
                                         <td>
-                                            <TextField className='inputField' id="outlined-basic responsiveMob" name='IctFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                            <TextField className='inputField' id="outlined-basic responsiveMob" name='IctFees' onChange={handleTotal} type="number" onWheel={(e) => e.target.blur()} autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
 
                                         </td>
                                     </tr>

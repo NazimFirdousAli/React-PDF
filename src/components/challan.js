@@ -46,9 +46,12 @@ const convertData = converter.toWords(totalFees);
 
 console.log(convertData)
 
-  // useEffect(() => {
-  //   window.print()
-  // }, [data])
+  useEffect(() => {
+    setTimeout(() => {
+      window.print()
+      
+    }, 1000);
+  }, [])
   
   return (
     <div>
@@ -129,7 +132,7 @@ console.log(convertData)
               </div>
               <div>
                 <div className="style-caption">
-                Registration Number
+                Reg Number
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
                   <span id="lblContact_No_Bank">{data ? data.registrationNumber : ''}</span>
@@ -295,7 +298,7 @@ console.log(convertData)
               </div>
               <div>
                 <div className="style-caption">
-                  Registration Number
+                  Reg Number
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
                   <span id="lblContact_No_Institute">{data ? data.registrationNumber : ''}</span>
@@ -464,7 +467,7 @@ console.log(convertData)
               </div>
               <div>
                 <div className="style-caption">
-                  Registration Number.
+                  Reg Number.
                 </div>
                 <div style={{ width: '65%', textAlign: 'left', borderBottomStyle: 'solid', borderBottomWidth: 'thin' }} className="style-caption-value">
                   <span id="lblContact_No_Student">{data ? data.registrationNumber : ''}</span>

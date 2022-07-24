@@ -155,7 +155,7 @@ input[type="number"] {
     .css-1vovazs{
         font-size: 12px !important;
     }
-    .MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label{
+    .MuiTypography-root .MuiTypography-body1 .MuiFormControlLabel-label{
         font-size: 12px !important;
     }
 
