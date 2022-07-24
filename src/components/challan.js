@@ -89,7 +89,7 @@ console.log(convertData)
                 </div>
                 <div id="lblChallan_Date">
                   <div className="style-caption">
-                    <b>Challan Date</b>
+                    <b>Due Date</b>
                   </div>
                   <div style={{ width: '65%', float: 'right' }}>
                     <b>
@@ -166,7 +166,7 @@ console.log(convertData)
                             {
                               feeTypes[val] !== 0 && 
                               <tr key={index} style={{border : "1px solid"}}>
-                                    <td>{val.replace('_',' ').toUpperCase() }</td><td align="right">{feeTypes[val]}</td>
+                                    <td>{val.replace('$',' ').toUpperCase()}</td><td align="right">{feeTypes[val]}</td>
                                   <br/>
                             </tr>
                             }
@@ -255,7 +255,7 @@ console.log(convertData)
                 </div>
                 <div id="lblChallan_Date">
                   <div className="style-caption">
-                    <b>Challan Date</b>
+                    <b>Due Date</b>
                   </div>
                   <div style={{ width: '65%', float: 'right' }}>
                     <b>
@@ -331,7 +331,7 @@ console.log(convertData)
                             {
                               feeTypes[val] !== 0 && 
                               <tr key={index} style={{border : "1px solid"}}>
-                                    <td>{val.replace('_',' ').toUpperCase()}</td><td align="right">{feeTypes[val]}</td>
+                                    <td>{val.replace('$',' ').toUpperCase()}</td><td align="right">{feeTypes[val]}</td>
                                   <br/>
                             </tr>
                             }
@@ -424,7 +424,7 @@ console.log(convertData)
                 </div>
                 <div id="lblChallan_Date">
                   <div className="style-caption">
-                    <b>Challan Date</b>
+                    <b>Due Date</b>
                   </div>
                   <div style={{ width: '65%', float: 'right' }}>
                     <b>
@@ -499,7 +499,7 @@ console.log(convertData)
                             {
                               feeTypes[val] !== 0 && 
                                     <tr key={index} style={{border : "1px solid"}}>
-                                    <td>{val.replace("_", " ").toUpperCase()}</td><td align="right">{feeTypes[val]}</td>
+                                    <td>{val.replace('$',' ').toUpperCase()}</td><td align="right">{feeTypes[val]}</td>
                                   <br/>
                             </tr>
                             }
@@ -571,4 +571,4 @@ console.log(convertData)
 
 }
 
-export default Challan
+export default Challan;

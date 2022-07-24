@@ -36,7 +36,7 @@ var month = dateObj.getUTCMonth() + 1; //months from 1-12
 var day = dateObj.getUTCDate();
 var year = dateObj.getUTCFullYear();
 
-const newDate = `${day}-${month}-   ${year}`;
+const newDate = `25-${month}-${year}`;
 
 // const depositSlip = '000000001';
 
@@ -48,11 +48,11 @@ const initalState = {
     payment: "",
     newDate,
     feesTypes: {
-        tution_Fees: 0,
-        admission_Fees: 0,
-        security_Deposit: 0,
-        Ict_Fees: 0,
-        other_Fees: 0,
+        tution$Fees: 0,
+        admission$Fees: 0,
+        security$Deposit: 0,
+        Ict$Dees: 0,
+        other$Fees: 0,
     },
     totalFees: 0,
 }
@@ -158,30 +158,30 @@ function Form() {
                                     <tr>
                                         <td>Tuition Fee</td>
                                         <td>
-                                            <TextField id="outlined-basic" name='tutionFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} inputProps={{ inputMode: 'numeric', pattern: '{0-9}' }} /><br />
+                                            <TextField id="outlined-basic" name='tution$Fees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} inputProps={{ inputMode: 'numeric', pattern: '{0-9}' }} /><br />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Admission Fees</td>
-                                        <td><TextField id="outlined-basic" name='admissionFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br /></td>
+                                        <td><TextField id="outlined-basic" name='admission$Fees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br /></td>
                                     </tr>
                                     <tr>
                                         <td>Security Deposit</td>
                                         <td>
-                                            <TextField id="outlined-basic" name='securityDeposit' type="number" onChange={handleTotal} autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                            <TextField id="outlined-basic" name='security$Deposit' type="number" onChange={handleTotal} autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>ICT Lab Fees</td>
+                                        {/* <td>ICT Lab Fees</td>
                                         <td>
                                             <TextField id="outlined-basic" name='IctFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
 
-                                        </td>
+                                        </td> */}
                                     </tr>
                                     <tr>
                                         <td>Other Fees</td>
                                         <td>
-                                            <TextField id="outlined-basic" name='otherFees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                            <TextField id="outlined-basic" name='other$Fees' onChange={handleTotal} type="number" autoComplete='off' size='small' label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
                                         </td>
                                     </tr>
                                 </table>
@@ -189,7 +189,7 @@ function Form() {
                             </div>
 
                             <div className='div-amount'>
-                                <TextField className={classes.not_allowed_cursor} id="outlined-basic" type="number" autoComplete='off' disabled value={sum} label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
+                                <TextField className={classes.not_allowed_cursor}  id="outlined-basic" type="number" autoComplete='off' disabled value={sum} label={Hidden} variant="outlined" InputLabelProps={{ shrink: false }} /><br />
                             </div>
                             <div className='div-button'>
                                 <Button type='submit' style={{ backgroundColor: "#61aa79" }} variant="contained" defaultChecked >Post Challan</Button>
@@ -208,12 +208,15 @@ function Form() {
 
 const useStyles = makeStyles({
 not_allowed_cursor : {
-    cursor: "not-allowed !important",
+    // cursor: "pointer",
     textAlign: 'center',
-    cursor: 'not-allowed !important',
     fontSize: '20px',
     padding: '10px',
     color: '#00f !important',
+    '&:hover': {
+        cursor: 'not-allowed !important',
+        pointerEvents: 'all !important'
+      }
 },
 div_radio : {
     marginTop: '25px !important',

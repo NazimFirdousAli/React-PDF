@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "fm-public"
-  }
+    "default": "fm-public-school-70723",
+    "stagging": "fm-public-school-70723"
+  },
+  "targets": {},
+  "etags": {}
 }
